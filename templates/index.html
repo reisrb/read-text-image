@@ -18,11 +18,11 @@
 </html>
 
 <script >
-  const BASE_URL = 'http://localhost:5000'
+  // const BASE_URL = 'http://localhost:5000'
   async function sendapi() {
     var formData = new FormData();
     formData.append('file', document.getElementById("image").files[0])
-    const res = await axios.post(BASE_URL+'/image', formData)
+    const res = await axios.post('/image', formData)
     console.log(res.data);
     document.getElementById("texto").innerHTML = res.data
   }
