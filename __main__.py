@@ -3,8 +3,8 @@ from flask import Flask, request, render_template
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
-#import cv2
-from PIL import Image
+import cv2
+#from PIL import Image
 
 app = Flask(__name__)
 CORS(app)
@@ -21,8 +21,8 @@ def image_to_string():
   path = os.path.join('./temp', filename)
   file.save(path)
 
-  img = Image.open(path)
-  #img = cv2.imread(path)
+  #img = Image.open(path)
+  img = cv2.imread(path)
   environment_clean_up()
   return pytesseract.image_to_string(img)
 
