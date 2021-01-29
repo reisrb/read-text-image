@@ -15,3 +15,22 @@ run_server:
 run_local:
 	python3 local_img.py $(path)
 
+
+	
+build:
+	docker build . -t ltmjobs:latest
+
+run:
+	docker run ltmjobs:latest $(mode) $(file)
+
+create_env:
+	python3 -m venv .env
+
+all-test:
+	python3 -m unittest discover test/
+
+behavior-test:
+	python3 -m unittest discover test/behavior/
+
+unit-test:
+	python3 -m unittest discover test/unit/
